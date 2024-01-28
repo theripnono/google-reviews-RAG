@@ -10,3 +10,4 @@ Tripadvisor:
 https://www.tripadvisor.es/Restaurant_Review-g616235-d2708477-Reviews-El_Curry_Verde_Restaurante_Vegetariano-Hondarribia_Province_of_Guipuzcoa_Basque_C.html
 
 **** Remember use your OPENAI API KEY as enviroment variable ***
+

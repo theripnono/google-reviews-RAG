@@ -1,4 +1,4 @@
-# Scrape reviews from Google Maps and TripAdvisor and use Langchain 🦜 Q&A with RAG to get insights into the reviews.
+## Scrape reviews from Google Maps and TripAdvisor and use RAG to get insights from these reviews.
 
 
 

@@ -6,12 +6,13 @@ from google_reviews import run_ggl
 def export_reviews2_csv():
 
     """
-    Function  google & Tripadvisor reviews
+    This function call run_ggl() and #run_trpdvsr() in order to 
+    hav google & Tripadvisor reviews
 
     """
     try:
         run_ggl()
-        run_trpdvsr()
+        #run_trpdvsr()
     except:
         print("something goes wrong")
 

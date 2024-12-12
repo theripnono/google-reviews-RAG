@@ -3,9 +3,12 @@ from datetime import datetime
 from tripadvisor_reviews import run_trpdvsr
 from google_reviews import run_ggl
 
+def export_reviews2_csv():
 
-def download_reviews():
+    """
+    Function  google & Tripadvisor reviews
 
+    """
     try:
         run_ggl()
         run_trpdvsr()
@@ -39,7 +42,7 @@ def download_reviews():
                 date_object = datetime.now().date()
                 date_str = date_object.strftime("%Y_%m_%d")
 
-                return clean_df.to_csv(f'{date_str}_export.csv', sep=';')
+                clean_df.to_csv(f'{date_str}_export.csv', sep=';')
 
     else:
         flag = len(csv_list)

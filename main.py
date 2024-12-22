@@ -9,7 +9,7 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.prompts import PromptTemplate
 
-from reviews import download_reviews
+from reviews import export_reviews2_csv
 
 # Todo search for multiple business
 
@@ -23,6 +23,9 @@ chain = load_qa_chain(llm, chain_type="stuff")
 
 
 def csv_to_text(csv_file):
+    """
+    Funtion that it transforms the csv into a plain text
+    """
     text = ''
     df = pd.read_csv(csv_file, sep=';')
     new_df = df[['comment', 'date']].copy()
@@ -32,7 +35,11 @@ def csv_to_text(csv_file):
 
     return text
 
-def check_csv():
+def get_csv():
+    
+    """
+    get csv from the path if does not exist it downloads and exports again
+    """
     path = os.getcwd()
     dirs = os.listdir(path)
 
@@ -41,8 +48,9 @@ def check_csv():
     if len(csv_reviews) > 0:
         return csv_reviews[0]
     else:
-        #download reviews
-        download_reviews()
+
+        #export reviews
+        export_reviews2_csv()
 
         path = os.getcwd()
         dirs = os.listdir(path)
@@ -51,14 +59,12 @@ def check_csv():
         return csv_reviews[0]
 
 
-csv_reviews = check_csv()
+csv_reviews = get_csv()
 
 
 #path = os.getcwd()
 #dirs = os.listdir(path)
 #csv_reviews =[file for file in dirs if file.endswith('_export.csv')][0]
-
-
 
 text_content = csv_to_text(csv_reviews)
 
